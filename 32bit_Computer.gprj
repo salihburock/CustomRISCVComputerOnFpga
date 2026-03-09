@@ -1,0 +1,21 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW2A-18C" pn="GW2A-LV18PG256C8/I7">gw2a18c-011</Device>
+    <FileList>
+        <File path="src/CPU_Registers.v" type="file.verilog" enable="1"/>
+        <File path="src/Main.v" type="file.verilog" enable="1"/>
+        <File path="src/PS2_Controller.v" type="file.verilog" enable="1"/>
+        <File path="src/SPI.v" type="file.verilog" enable="1"/>
+        <File path="src/UART.v" type="file.verilog" enable="1"/>
+        <File path="src/VGA.v" type="file.verilog" enable="1"/>
+        <File path="src/ddr3_memory_interface/ddr3_memory_interface.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll_2/gowin_rpll_2.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_sdpb/gowin_sdpb.v" type="file.verilog" enable="1"/>
+        <File path="src/32bit.cst" type="file.cst" enable="1"/>
+        <File path="src/32bit.sdc" type="file.sdc" enable="1"/>
+    </FileList>
+</Project>

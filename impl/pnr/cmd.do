@@ -1,0 +1,18 @@
+-d D:\Gowin_FPGA\Projects\32Bit_Computer\impl\gwsynthesis\32bit_Computer.vg
+-p GW2A-18C-PBGA256-8
+-pn GW2A-LV18PG256C8/I7
+-cst D:\Gowin_FPGA\Projects\32Bit_Computer\src\32bit.cst
+-cfg D:\Gowin_FPGA\Projects\32Bit_Computer\impl\pnr\device.cfg
+-sdc D:\Gowin_FPGA\Projects\32Bit_Computer\src\32bit.sdc
+-bit
+-tr
+-ph
+-timing
+-cst_error
+-convert_sdp32_36_to_sdp16_18
+-place_option 0
+-route_option 0
+-clock_route_order 0
+-correct_hold 1
+-route_maxfan 23
+-global_freq 100.000

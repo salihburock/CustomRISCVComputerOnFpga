@@ -1,0 +1,53 @@
+{
+ "Device" : "GW2A-18C",
+ "Files" : [
+  {
+   "Path" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/CPU_Registers.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/Main.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/PS2_Controller.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/SPI.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/UART.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/VGA.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/ddr3_memory_interface/ddr3_memory_interface.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/gowin_rpll/gowin_rpll.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/gowin_rpll_2/gowin_rpll_2.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/gowin_sdpb/gowin_sdpb.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/impl/temp/rtl_parser.result",
+ "Top" : "",
+ "VerilogStd" : "verilog_2001",
+ "VhdlStd" : "vhdl_93"
+}

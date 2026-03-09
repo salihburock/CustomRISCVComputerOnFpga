@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="Main_Computer" Register="1308" Alu="242" Lut="2678" T_Register="2866(1308)" T_Alu="381(242)" T_Lut="4653(2678)" T_Bsram="39(0)" T_Ssram="111(0)">
+ <SubModule name="r_clock"/>
+ <SubModule name="main_ram" Register="1296" Alu="102" Lut="1364" Bsram="8" Ssram="111" T_Register="1296(1296)" T_Alu="102(102)" T_Lut="1364(1364)" T_Bsram="8(8)" T_Ssram="111(111)"/>
+ <SubModule name="debug_uart" Register="22" Lut="49" T_Register="22(22)" T_Lut="49(49)"/>
+ <SubModule name="spi_inst" Register="146" Lut="180" T_Register="146(146)" T_Lut="180(180)"/>
+ <SubModule name="keyboard" Register="63" Alu="10" Lut="84" T_Register="63(63)" T_Alu="10(10)" T_Lut="84(84)"/>
+ <SubModule name="vga_clock_generator"/>
+ <SubModule name="display_out" Register="28" Alu="27" Lut="39" T_Register="28(28)" T_Alu="27(27)" T_Lut="39(39)"/>
+ <SubModule name="vram" Register="3" Lut="189" Bsram="29" T_Register="3(3)" T_Lut="189(189)" T_Bsram="29(29)"/>
+ <SubModule name="cpu_register_controller" Lut="70" Bsram="2" T_Lut="70(70)" T_Bsram="2(2)"/>
+</Module>

@@ -1,0 +1,70 @@
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'D:\Gowin_FPGA\Projects\32Bit_Computer\src\CPU_Registers.v'
+Analyzing Verilog file 'D:\Gowin_FPGA\Projects\32Bit_Computer\src\Main.v'
+Analyzing Verilog file 'D:\Gowin_FPGA\Projects\32Bit_Computer\src\PS2_Controller.v'
+Analyzing Verilog file 'D:\Gowin_FPGA\Projects\32Bit_Computer\src\SPI.v'
+Analyzing Verilog file 'D:\Gowin_FPGA\Projects\32Bit_Computer\src\UART.v'
+Analyzing Verilog file 'D:\Gowin_FPGA\Projects\32Bit_Computer\src\VGA.v'
+Analyzing Verilog file 'D:\Gowin_FPGA\Projects\32Bit_Computer\src\ddr3_memory_interface\ddr3_memory_interface.v'
+Analyzing Verilog file 'D:\Gowin_FPGA\Projects\32Bit_Computer\src\gowin_rpll\gowin_rpll.v'
+Analyzing Verilog file 'D:\Gowin_FPGA\Projects\32Bit_Computer\src\gowin_rpll_2\gowin_rpll_2.v'
+Analyzing Verilog file 'D:\Gowin_FPGA\Projects\32Bit_Computer\src\gowin_sdpb\gowin_sdpb.v'
+Compiling module 'Main_Computer'("D:\Gowin_FPGA\Projects\32Bit_Computer\src\Main.v":1)
+Compiling module 'Gowin_rPLL'("D:\Gowin_FPGA\Projects\32Bit_Computer\src\gowin_rpll\gowin_rpll.v":9)
+Compiling module 'DDR3_Memory_Interface_Top'("D:\Gowin_FPGA\Projects\32Bit_Computer\src\ddr3_memory_interface\ddr3_memory_interface.v":11484)
+Compiling module '**'("D:\Gowin_FPGA\Projects\32Bit_Computer\src\ddr3_memory_interface\ddr3_memory_interface.v":11483)
+Compiling module 'UART_Controller'("D:\Gowin_FPGA\Projects\32Bit_Computer\src\UART.v":1)
+WARN  (EX3791) : Expression size 5 truncated to fit in target size 4("D:\Gowin_FPGA\Projects\32Bit_Computer\src\UART.v":70)
+WARN  (EX3791) : Expression size 5 truncated to fit in target size 4("D:\Gowin_FPGA\Projects\32Bit_Computer\src\UART.v":107)
+Compiling module 'SPI_Controller'("D:\Gowin_FPGA\Projects\32Bit_Computer\src\SPI.v":1)
+WARN  (EX3791) : Expression size 9 truncated to fit in target size 8("D:\Gowin_FPGA\Projects\32Bit_Computer\src\SPI.v":79)
+WARN  (EX3791) : Expression size 6 truncated to fit in target size 5("D:\Gowin_FPGA\Projects\32Bit_Computer\src\SPI.v":85)
+WARN  (EX3791) : Expression size 26 truncated to fit in target size 25("D:\Gowin_FPGA\Projects\32Bit_Computer\src\Main.v":244)
+WARN  (EX3791) : Expression size 3 truncated to fit in target size 2("D:\Gowin_FPGA\Projects\32Bit_Computer\src\Main.v":274)
+WARN  (EX3791) : Expression size 26 truncated to fit in target size 25("D:\Gowin_FPGA\Projects\32Bit_Computer\src\Main.v":320)
+Compiling module 'PS2_Controller'("D:\Gowin_FPGA\Projects\32Bit_Computer\src\PS2_Controller.v":1)
+WARN  (EX3791) : Expression size 6 truncated to fit in target size 5("D:\Gowin_FPGA\Projects\32Bit_Computer\src\PS2_Controller.v":28)
+WARN  (EX3791) : Expression size 32 truncated to fit in target size 5("D:\Gowin_FPGA\Projects\32Bit_Computer\src\PS2_Controller.v":31)
+WARN  (EX3791) : Expression size 6 truncated to fit in target size 5("D:\Gowin_FPGA\Projects\32Bit_Computer\src\PS2_Controller.v":37)
+WARN  (EX3791) : Expression size 32 truncated to fit in target size 5("D:\Gowin_FPGA\Projects\32Bit_Computer\src\PS2_Controller.v":40)
+WARN  (EX3791) : Expression size 18 truncated to fit in target size 17("D:\Gowin_FPGA\Projects\32Bit_Computer\src\PS2_Controller.v":73)
+WARN  (EX3791) : Expression size 5 truncated to fit in target size 4("D:\Gowin_FPGA\Projects\32Bit_Computer\src\PS2_Controller.v":101)
+Compiling module 'Gowin_rPLL_VGA'("D:\Gowin_FPGA\Projects\32Bit_Computer\src\gowin_rpll_2\gowin_rpll_2.v":10)
+Compiling module 'VGA_Controller'("D:\Gowin_FPGA\Projects\32Bit_Computer\src\VGA.v":1)
+WARN  (EX3791) : Expression size 31 truncated to fit in target size 8("D:\Gowin_FPGA\Projects\32Bit_Computer\src\VGA.v":40)
+WARN  (EX3791) : Expression size 18 truncated to fit in target size 16("D:\Gowin_FPGA\Projects\32Bit_Computer\src\VGA.v":42)
+WARN  (EX3791) : Expression size 11 truncated to fit in target size 10("D:\Gowin_FPGA\Projects\32Bit_Computer\src\VGA.v":59)
+WARN  (EX3791) : Expression size 11 truncated to fit in target size 10("D:\Gowin_FPGA\Projects\32Bit_Computer\src\VGA.v":61)
+Compiling module 'Gowin_SDPB_VRAM'("D:\Gowin_FPGA\Projects\32Bit_Computer\src\gowin_sdpb\gowin_sdpb.v":10)
+WARN  (EX3791) : Expression size 18 truncated to fit in target size 17("D:\Gowin_FPGA\Projects\32Bit_Computer\src\Main.v":455)
+Compiling module 'CPU_Registers'("D:\Gowin_FPGA\Projects\32Bit_Computer\src\CPU_Registers.v":1)
+Extracting RAM for identifier 'registers'("D:\Gowin_FPGA\Projects\32Bit_Computer\src\CPU_Registers.v":19)
+WARN  (EX3791) : Expression size 3 truncated to fit in target size 2("D:\Gowin_FPGA\Projects\32Bit_Computer\src\Main.v":638)
+WARN  (EX3791) : Expression size 3 truncated to fit in target size 2("D:\Gowin_FPGA\Projects\32Bit_Computer\src\Main.v":661)
+WARN  (EX3791) : Expression size 3 truncated to fit in target size 2("D:\Gowin_FPGA\Projects\32Bit_Computer\src\Main.v":696)
+WARN  (EX3791) : Expression size 3 truncated to fit in target size 2("D:\Gowin_FPGA\Projects\32Bit_Computer\src\Main.v":706)
+WARN  (EX3791) : Expression size 3 truncated to fit in target size 2("D:\Gowin_FPGA\Projects\32Bit_Computer\src\Main.v":1002)
+WARN  (EX3791) : Expression size 6 truncated to fit in target size 5("D:\Gowin_FPGA\Projects\32Bit_Computer\src\Main.v":1142)
+NOTE  (EX0101) : Current top module is "Main_Computer"
+[5%] Running netlist conversion ...
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+[95%] Generate netlist file "D:\Gowin_FPGA\Projects\32Bit_Computer\impl\gwsynthesis\32bit_Computer.vg" completed
+WARN  (CK3000) : Can't calculate clocks' relationship between: "vga_clock_generator/rpll_inst/CLKOUT.default_gen_clk" and "main_ram/gw3_top/i4/fclkdiv/CLKOUT.default_gen_clk"
+WARN  (CK3000) : Can't calculate clocks' relationship between: "main_ram/gw3_top/i4/fclkdiv/CLKOUT.default_gen_clk" and "vga_clock_generator/rpll_inst/CLKOUT.default_gen_clk"
+[100%] Generate report file "D:\Gowin_FPGA\Projects\32Bit_Computer\impl\gwsynthesis\32bit_Computer_syn.rpt.html" completed
+GowinSynthesis finish

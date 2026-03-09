@@ -1,0 +1,32 @@
+Reading netlist file: "D:\Gowin_FPGA\Projects\32Bit_Computer\impl\gwsynthesis\32bit_Computer.vg"
+Parsing netlist file "D:\Gowin_FPGA\Projects\32Bit_Computer\impl\gwsynthesis\32bit_Computer.vg" completed
+Processing netlist completed
+Reading constraint file: "D:\Gowin_FPGA\Projects\32Bit_Computer\src\32bit.cst"
+Physical Constraint parsed completed
+Running placement......
+[10%] Placement Phase 0 completed
+[20%] Placement Phase 1 completed
+[30%] Placement Phase 2 completed
+WARN  (TA1132) :  'main_ram/gw3_top/i4/fclkdiv/CLKOUT.default_gen_clk' was determined to be a clock but was not created.
+WARN  (TA1117) : Can't calculate clocks' relationship between: "vga_clock_generator/rpll_inst/CLKOUT.default_gen_clk" and "main_ram/gw3_top/i4/fclkdiv/CLKOUT.default_gen_clk"
+WARN  (TA1117) : Can't calculate clocks' relationship between: "main_ram/gw3_top/i4/fclkdiv/CLKOUT.default_gen_clk" and "vga_clock_generator/rpll_inst/CLKOUT.default_gen_clk"
+[50%] Placement Phase 3 completed
+Running routing......
+[60%] Routing Phase 0 completed
+[70%] Routing Phase 1 completed
+[80%] Routing Phase 2 completed
+[90%] Routing Phase 3 completed
+Running timing analysis......
+[95%] Timing analysis completed
+Placement and routing completed
+Bitstream generation in progress......
+Bitstream generation completed
+Running power analysis......
+[100%] Power analysis completed
+Generate file "D:\Gowin_FPGA\Projects\32Bit_Computer\impl\pnr\32bit_Computer.power.html" completed
+Generate file "D:\Gowin_FPGA\Projects\32Bit_Computer\impl\pnr\32bit_Computer.pin.html" completed
+Generate file "D:\Gowin_FPGA\Projects\32Bit_Computer\impl\pnr\32bit_Computer.rpt.html" completed
+Generate file "D:\Gowin_FPGA\Projects\32Bit_Computer\impl\pnr\32bit_Computer.rpt.txt" completed
+Generate file "D:\Gowin_FPGA\Projects\32Bit_Computer\impl\pnr\32bit_Computer.tr.html" completed
+Sun Mar  8 20:51:14 2026
+

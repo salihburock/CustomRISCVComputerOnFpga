@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gowin-synthesis-project>
+<Project>
+    <Version>beta</Version>
+    <Device id="GW2A-18C" package="PBGA256" speed="8" partNumber="GW2A-LV18PG256C8/I7"/>
+    <FileList>
+        <File path="D:\Gowin_FPGA\Projects\32Bit_Computer\src\CPU_Registers.v" type="verilog"/>
+        <File path="D:\Gowin_FPGA\Projects\32Bit_Computer\src\Main.v" type="verilog"/>
+        <File path="D:\Gowin_FPGA\Projects\32Bit_Computer\src\PS2_Controller.v" type="verilog"/>
+        <File path="D:\Gowin_FPGA\Projects\32Bit_Computer\src\SPI.v" type="verilog"/>
+        <File path="D:\Gowin_FPGA\Projects\32Bit_Computer\src\UART.v" type="verilog"/>
+        <File path="D:\Gowin_FPGA\Projects\32Bit_Computer\src\VGA.v" type="verilog"/>
+        <File path="D:\Gowin_FPGA\Projects\32Bit_Computer\src\ddr3_memory_interface\ddr3_memory_interface.v" type="verilog"/>
+        <File path="D:\Gowin_FPGA\Projects\32Bit_Computer\src\gowin_rpll\gowin_rpll.v" type="verilog"/>
+        <File path="D:\Gowin_FPGA\Projects\32Bit_Computer\src\gowin_rpll_2\gowin_rpll_2.v" type="verilog"/>
+        <File path="D:\Gowin_FPGA\Projects\32Bit_Computer\src\gowin_sdpb\gowin_sdpb.v" type="verilog"/>
+    </FileList>
+    <OptionList>
+        <Option type="disable_insert_pad" value="0"/>
+        <Option type="global_freq" value="100.000"/>
+        <Option type="looplimit" value="2000"/>
+        <Option type="output_file" value="D:\Gowin_FPGA\Projects\32Bit_Computer\impl\gwsynthesis\32bit_Computer.vg"/>
+        <Option type="print_all_synthesis_warning" value="0"/>
+        <Option type="ram_rw_check" value="0"/>
+        <Option type="vcc" value="1.0"/>
+        <Option type="verilog_language" value="verilog-2001"/>
+        <Option type="vhdl_language" value="vhdl-1993"/>
+    </OptionList>
+</Project>

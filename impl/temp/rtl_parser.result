@@ -1,0 +1,94 @@
+[
+ {
+  "InstFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/Main.v",
+  "InstLine" : 1,
+  "InstName" : "Main_Computer",
+  "ModuleFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/Main.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "Main_Computer",
+  "SubInsts" : [
+   {
+    "InstFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/Main.v",
+    "InstLine" : 93,
+    "InstName" : "r_clock",
+    "ModuleFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/gowin_rpll/gowin_rpll.v",
+    "ModuleLine" : 9,
+    "ModuleName" : "Gowin_rPLL"
+   },
+   {
+    "InstFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/Main.v",
+    "InstLine" : 100,
+    "InstName" : "main_ram",
+    "ModuleFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/ddr3_memory_interface/ddr3_memory_interface.v",
+    "ModuleLine" : 11484,
+    "ModuleName" : "DDR3_Memory_Interface_Top",
+    "SubInsts" : [
+     {
+      "InstFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/ddr3_memory_interface/ddr3_memory_interface.v",
+      "InstLine" : 11569,
+      "InstName" : "gw3_top",
+      "ModuleFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/ddr3_memory_interface/ddr3_memory_interface.v",
+      "ModuleLine" : 10,
+      "ModuleName" : "~GW_DDR3_PHY_MC.DDR3_Memory_Interface_Top"
+     }
+    ]
+   },
+   {
+    "InstFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/Main.v",
+    "InstLine" : 151,
+    "InstName" : "debug_uart",
+    "ModuleFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/UART.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "UART_Controller"
+   },
+   {
+    "InstFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/Main.v",
+    "InstLine" : 173,
+    "InstName" : "spi_inst",
+    "ModuleFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/SPI.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "SPI_Controller"
+   },
+   {
+    "InstFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/Main.v",
+    "InstLine" : 369,
+    "InstName" : "keyboard",
+    "ModuleFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/PS2_Controller.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "PS2_Controller"
+   },
+   {
+    "InstFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/Main.v",
+    "InstLine" : 386,
+    "InstName" : "vga_clock_generator",
+    "ModuleFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/gowin_rpll_2/gowin_rpll_2.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "Gowin_rPLL_VGA"
+   },
+   {
+    "InstFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/Main.v",
+    "InstLine" : 396,
+    "InstName" : "display_out",
+    "ModuleFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/VGA.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "VGA_Controller"
+   },
+   {
+    "InstFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/Main.v",
+    "InstLine" : 420,
+    "InstName" : "vram",
+    "ModuleFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/gowin_sdpb/gowin_sdpb.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "Gowin_SDPB_VRAM"
+   },
+   {
+    "InstFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/Main.v",
+    "InstLine" : 478,
+    "InstName" : "cpu_register_controller",
+    "ModuleFile" : "D:/Gowin_FPGA/Projects/32Bit_Computer/src/CPU_Registers.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "CPU_Registers"
+   }
+  ]
+ }
+]

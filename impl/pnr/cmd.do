@@ -1,9 +1,9 @@
--d D:\Gowin_FPGA\Projects\32Bit_Computer\impl\gwsynthesis\32bit_Computer.vg
+-d /home/salih/gits/CustomRISCVComputerOnFpga/impl/gwsynthesis/32bit_Computer.vg
 -p GW2A-18C-PBGA256-8
 -pn GW2A-LV18PG256C8/I7
--cst D:\Gowin_FPGA\Projects\32Bit_Computer\src\32bit.cst
--cfg D:\Gowin_FPGA\Projects\32Bit_Computer\impl\pnr\device.cfg
--sdc D:\Gowin_FPGA\Projects\32Bit_Computer\src\32bit.sdc
+-cst /home/salih/gits/CustomRISCVComputerOnFpga/src/32bit.cst
+-cfg /home/salih/gits/CustomRISCVComputerOnFpga/impl/pnr/device.cfg
+-sdc /home/salih/gits/CustomRISCVComputerOnFpga/src/32bit.sdc
 -bit
 -tr
 -ph

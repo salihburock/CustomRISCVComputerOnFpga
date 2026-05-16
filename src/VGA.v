@@ -31,20 +31,30 @@ reg [9:0] v_cnt = 0;
 assign h_sync_i = ~(h_cnt >= (H_ACTIVE + H_FRONT) && h_cnt < (H_ACTIVE + H_FRONT + H_SYNC));
 assign v_sync_i = ~(v_cnt >= (V_ACTIVE + V_FRONT) && v_cnt < (V_ACTIVE + V_FRONT + V_SYNC));
 
-// Centering 320x200 (scaled x2) inside 640x480
-// We need a 40 pixel blank border at the top and bottom (40 + 400 + 40 = 480)
-wire image_active = (h_cnt < 640) && (v_cnt >= 40) && (v_cnt < 440);
+// ── Look-ahead counters (1 cycle in the future) ───────────────────────────
+// SDPB BRAM is in "bypass" read_mode → 1 cycle latency from addr to dout.
+// Present the address for the NEXT pixel so data lands aligned with it.
+wire [9:0] h_cnt_n = (h_cnt == H_TOTAL - 1) ? 10'd0 : h_cnt + 10'd1;
+wire [9:0] v_cnt_n = (h_cnt == H_TOTAL - 1)
+                     ? ((v_cnt == V_TOTAL - 1) ? 10'd0 : v_cnt + 10'd1)
+                     : v_cnt;
 
-// X goes 0->639, Y goes 40->439. We divide X by 2, and (Y-40) by 2 to get 320x200
-wire [8:0] pixel_x = h_cnt[9:1];        // 0 to 319
-wire [7:0] pixel_y = (v_cnt - 40) >> 1; // 0 to 199
+// Look-ahead address generation (used by BRAM this cycle)
+wire image_active_n         = (h_cnt_n < 640) && (v_cnt_n >= 40) && (v_cnt_n < 440);
+wire [8:0]  pixel_x_n       = h_cnt_n[9:1];
+wire [7:0]  pixel_y_n       = (v_cnt_n - 10'd40) >> 1;
+wire [15:0] absolute_pixel_n = (pixel_y_n * 320) + pixel_x_n;
 
+// Current-pixel decode (selectors for the data arriving NOW)
+wire image_active        = (h_cnt < 640) && (v_cnt >= 40) && (v_cnt < 440);
+wire [8:0]  pixel_x      = h_cnt[9:1];
+wire [7:0]  pixel_y      = (v_cnt - 40) >> 1;
 wire [15:0] absolute_pixel = (pixel_y * 320) + pixel_x;
+wire [1:0]  sub_pixel    = absolute_pixel[1:0];
 
-// VRAM handles 32 bits (4 pixels) per address
-assign vram_read_addr = absolute_pixel[15:2]; 
-assign vram_read_en   = image_active;
-wire [1:0] sub_pixel  = absolute_pixel[1:0];
+// VRAM handles 32 bits (4 pixels) per address — present LOOK-AHEAD addr
+assign vram_read_addr = absolute_pixel_n[15:2];
+assign vram_read_en   = image_active_n;
 
 always @(posedge sys_clk) begin
     if (!sys_rst_n) begin
@@ -61,11 +71,12 @@ always @(posedge sys_clk) begin
             h_cnt <= h_cnt + 1;
         end
 
-        // Pixel Drawing
+        // Pixel Drawing — LSB-first byte order: RISC-V (little-endian) stores
+        // pixel 0 at bits[7:0], pixel 3 at bits[31:24] of each 32-bit word.
         if (image_active) begin
             case (sub_pixel)
-                2'd0: begin RED <= vram_read_data[7:5]; GREEN <= vram_read_data[4:2]; BLUE <= vram_read_data[1:0]; end
-                2'd1: begin RED <= vram_read_data[15:13]; GREEN <= vram_read_data[12:10]; BLUE <= vram_read_data[9:8]; end
+                2'd0: begin RED <= vram_read_data[7:5];   GREEN <= vram_read_data[4:2];   BLUE <= vram_read_data[1:0];  end
+                2'd1: begin RED <= vram_read_data[15:13]; GREEN <= vram_read_data[12:10]; BLUE <= vram_read_data[9:8];   end
                 2'd2: begin RED <= vram_read_data[23:21]; GREEN <= vram_read_data[20:18]; BLUE <= vram_read_data[17:16]; end
                 2'd3: begin RED <= vram_read_data[31:29]; GREEN <= vram_read_data[28:26]; BLUE <= vram_read_data[25:24]; end
             endcase

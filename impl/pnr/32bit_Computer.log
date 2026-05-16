@@ -1,7 +1,7 @@
-Reading netlist file: "D:\Gowin_FPGA\Projects\32Bit_Computer\impl\gwsynthesis\32bit_Computer.vg"
-Parsing netlist file "D:\Gowin_FPGA\Projects\32Bit_Computer\impl\gwsynthesis\32bit_Computer.vg" completed
+Reading netlist file: "/home/salih/gits/CustomRISCVComputerOnFpga/impl/gwsynthesis/32bit_Computer.vg"
+Parsing netlist file "/home/salih/gits/CustomRISCVComputerOnFpga/impl/gwsynthesis/32bit_Computer.vg" completed
 Processing netlist completed
-Reading constraint file: "D:\Gowin_FPGA\Projects\32Bit_Computer\src\32bit.cst"
+Reading constraint file: "/home/salih/gits/CustomRISCVComputerOnFpga/src/32bit.cst"
 Physical Constraint parsed completed
 Running placement......
 [10%] Placement Phase 0 completed
@@ -23,10 +23,10 @@ Bitstream generation in progress......
 Bitstream generation completed
 Running power analysis......
 [100%] Power analysis completed
-Generate file "D:\Gowin_FPGA\Projects\32Bit_Computer\impl\pnr\32bit_Computer.power.html" completed
-Generate file "D:\Gowin_FPGA\Projects\32Bit_Computer\impl\pnr\32bit_Computer.pin.html" completed
-Generate file "D:\Gowin_FPGA\Projects\32Bit_Computer\impl\pnr\32bit_Computer.rpt.html" completed
-Generate file "D:\Gowin_FPGA\Projects\32Bit_Computer\impl\pnr\32bit_Computer.rpt.txt" completed
-Generate file "D:\Gowin_FPGA\Projects\32Bit_Computer\impl\pnr\32bit_Computer.tr.html" completed
-Sun Mar  8 20:51:14 2026
+Generate file "/home/salih/gits/CustomRISCVComputerOnFpga/impl/pnr/32bit_Computer.power.html" completed
+Generate file "/home/salih/gits/CustomRISCVComputerOnFpga/impl/pnr/32bit_Computer.pin.html" completed
+Generate file "/home/salih/gits/CustomRISCVComputerOnFpga/impl/pnr/32bit_Computer.rpt.html" completed
+Generate file "/home/salih/gits/CustomRISCVComputerOnFpga/impl/pnr/32bit_Computer.rpt.txt" completed
+Generate file "/home/salih/gits/CustomRISCVComputerOnFpga/impl/pnr/32bit_Computer.tr.html" completed
+Fri May 15 17:11:51 2026
 

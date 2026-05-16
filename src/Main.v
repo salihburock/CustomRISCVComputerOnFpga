@@ -410,9 +410,14 @@ VGA_Controller display_out (
 // VRAM (Main Display) & CRASH MULTIPLEXER (Algorithmic BSOD)
 // ==============================================================================
 
-reg [13:0]  vram_addr_out = 0;           
-reg [31:0]  vram_data_out = 0;           
-reg         vram_write_en = 0;           
+reg [13:0]  vram_addr_out = 0;
+reg [31:0]  vram_data_out = 0;
+reg         vram_write_en = 0;
+// Write-merge buffer: accumulates SB/SH bytes into a full word before writing
+// to SDPB (which has no byte-enable on its write port).
+reg [31:0]  vwbuf_data  = 32'd0;
+reg [13:0]  vwbuf_addr  = 14'h3FFF;
+reg         vwbuf_dirty = 1'b0;
 
 wire [31:0] main_vram_read_data;
 
@@ -608,9 +613,12 @@ always @(posedge ddr_user_clk or negedge sys_rst_n) begin
         data_addr <= 32'd0;
         cpu_store_data <= 32'd0;
         vram_write_en <= 0;
+        vwbuf_dirty   <= 1'b0;
+        vwbuf_data    <= 32'd0;
+        vwbuf_addr    <= 14'h3FFF;
         dump_reg_idx <= 5'd0;
         pending_exec_state <= 0;
-        
+
         // Reset Queue
         rq_head <= 0; rq_tail <= 0; rq_is_data <= 0;
         pf_valid <= 0; dmem_valid <= 0; pf_ready_addr <= 27'h7FFFFFF;
@@ -948,10 +956,60 @@ always @(posedge ddr_user_clk or negedge sys_rst_n) begin
 
             C_IO_WRITE: begin
                 if (data_addr >= 32'h4000_0000 && data_addr <= 32'h4000_FFFC) begin
-                    vram_addr_out <= data_addr[15:2]; 
-                    vram_data_out <= cpu_store_data; 
-                    vram_write_en <= 1; 
-                    state <= C_EXECUTE; 
+                    case (funct3[1:0])
+                        2'b10: begin // SW — full 32-bit write, bypass buffer
+                            vram_addr_out <= data_addr[15:2];
+                            vram_data_out <= cpu_store_data;
+                            vram_write_en <= 1;
+                            if (vwbuf_addr == data_addr[15:2]) vwbuf_dirty <= 1'b0;
+                        end
+                        default: begin // SB / SH — accumulate into write-merge buffer
+                            // Flush old buffered word to SDPB when word address changes
+                            if (vwbuf_dirty && vwbuf_addr != data_addr[15:2]) begin
+                                vram_addr_out <= vwbuf_addr;
+                                vram_data_out <= vwbuf_data;
+                                vram_write_en <= 1;
+                            end else begin
+                                vram_write_en <= 0;
+                            end
+                            vwbuf_addr  <= data_addr[15:2];
+                            vwbuf_dirty <= 1'b1;
+                            // Explicit full-word assignments — no partial NBAs (synthesis-safe)
+                            // accumulate=1: preserve existing bytes; accumulate=0: start fresh
+                            if (funct3[1:0] == 2'b00) begin // SB
+                                if (vwbuf_dirty && vwbuf_addr == data_addr[15:2]) begin
+                                    // Accumulate: mask out target byte, OR in new value
+                                    case (data_addr[1:0])
+                                        2'b00: vwbuf_data <= (vwbuf_data & 32'hFFFFFF00) | {24'd0, cpu_store_data[7:0]};
+                                        2'b01: vwbuf_data <= (vwbuf_data & 32'hFFFF00FF) | {16'd0, cpu_store_data[7:0], 8'd0};
+                                        2'b10: vwbuf_data <= (vwbuf_data & 32'hFF00FFFF) | {8'd0, cpu_store_data[7:0], 16'd0};
+                                        2'b11: vwbuf_data <= (vwbuf_data & 32'h00FFFFFF) | {cpu_store_data[7:0], 24'd0};
+                                    endcase
+                                end else begin
+                                    // New word: clear all, set only target byte
+                                    case (data_addr[1:0])
+                                        2'b00: vwbuf_data <= {24'd0, cpu_store_data[7:0]};
+                                        2'b01: vwbuf_data <= {16'd0, cpu_store_data[7:0], 8'd0};
+                                        2'b10: vwbuf_data <= {8'd0, cpu_store_data[7:0], 16'd0};
+                                        2'b11: vwbuf_data <= {cpu_store_data[7:0], 24'd0};
+                                    endcase
+                                end
+                            end else begin // SH
+                                if (vwbuf_dirty && vwbuf_addr == data_addr[15:2]) begin
+                                    if (data_addr[1] == 1'b0)
+                                        vwbuf_data <= (vwbuf_data & 32'hFFFF0000) | {16'd0, cpu_store_data[15:8], cpu_store_data[7:0]};
+                                    else
+                                        vwbuf_data <= (vwbuf_data & 32'h0000FFFF) | {cpu_store_data[15:8], cpu_store_data[7:0], 16'd0};
+                                end else begin
+                                    if (data_addr[1] == 1'b0)
+                                        vwbuf_data <= {16'd0, cpu_store_data[15:8], cpu_store_data[7:0]};
+                                    else
+                                        vwbuf_data <= {cpu_store_data[15:8], cpu_store_data[7:0], 16'd0};
+                                end
+                            end
+                        end
+                    endcase
+                    state <= C_EXECUTE;
                 end
                 else if (data_addr == 32'h4020_0000) begin
                     cpu_uart_msg <= cpu_store_data; 
@@ -1168,10 +1226,11 @@ always @(posedge ddr_user_clk or negedge sys_rst_n) begin
         data_addr <= 32'd0;
         cpu_store_data <= 32'd0;
         vram_write_en <= 0;
+        vwbuf_dirty   <= 1'b0;
         dump_reg_idx <= 5'd0;
         pending_exec_state <= 0;
-        cpu_done <= 0; 
-        
+        cpu_done <= 0;
+
         rq_head <= 0; rq_tail <= 0; rq_is_data <= 0;
         pf_valid <= 0; dmem_valid <= 0; pf_ready_addr <= 27'h7FFFFFF;
     end
